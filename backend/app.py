@@ -117,6 +117,7 @@ def check_api_key():
 
     key = request.headers.get('X-API-Key')
     if key != API_KEY:
+        print(f"DEBUG: Auth Failed. Expected: '{API_KEY}' Received: '{key}'")
         # For development/local testing, you might want to bypass if API_KEY is not set
         if not API_KEY and app.debug:
             return
